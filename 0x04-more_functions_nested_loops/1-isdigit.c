@@ -14,6 +14,6 @@ int _isdigit(int c)
 	}
 	else
 	{
-		retuen (0);
+		return (0);
 	}
 }
