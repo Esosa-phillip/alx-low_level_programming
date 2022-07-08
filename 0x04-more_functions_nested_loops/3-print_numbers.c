@@ -2,9 +2,9 @@
 
 /**
  * print_numbers - prints numbers between 0 to 9.
+ *		only using _putchar twice
  *
- *
- * Return: no return.
+ * Return: Always 0 (success)
  */
 
 void print_numbers(void)
