@@ -10,3 +10,4 @@ Task 7 - Drawing diagonal line on the terminal.
 Task 8 - Printing square followed by a newline.
 Task 9 - FizzBuzz Test.
 Task 10 - Print a triangle followed by a newline.
+Advanced Task
