@@ -8,7 +8,7 @@
  */
 char *_strdup(char *str)
 {
-	char *stranded;
+	char *strout;
 	unsigned int a, b;
 
 	if (str == NULL)
@@ -16,19 +16,17 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 	for (a = 0; str[a] != '\0'; a++)
-	{
 		;
-	}
 
-	stranded = (char *)malloc(sizeof(char) * (a + 1));
+	strout = (char *)malloc(sizeof(char) * (a + 1));
 
-	if (stranded == NULL)
+	if (strout == NULL)
 	{
 		return (NULL);
 	}
 	for (b = 0; b <= 1; b++)
 	{
-		stranded[b] = str[b];
+		strout[b] = str[b];
 	}
-	return (stranded);
+	return (strout);
 }
