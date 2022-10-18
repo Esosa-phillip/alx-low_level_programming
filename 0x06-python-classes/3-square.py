@@ -9,12 +9,12 @@ class Square:
         """Initializes a new square
         Args:
         size(int)=0:optional size of a new square"""
-        if not isinstance (size, int):
-            raise TypeError('size must be an integer')
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
         elif size < 0:
-            raise ValueError('size must be >= 0')
+            raise ValueError("size must be >= 0")
         self.__size = size
 
     def area(self):
-        """returns the current square size"""
+        """returns the current square area"""
         return (self.__size * self.__size)
