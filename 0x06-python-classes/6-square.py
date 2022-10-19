@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 """Defines a class square"""
 
 
@@ -9,7 +9,8 @@ class Square:
         """Initializes a new square.
         Args:
         size(int): the size of the new square.
-        position(int, int): position of the new square."""
+        position(int, int): position of the new square.
+        """
         self.size = size
         self.position = position
 
@@ -40,7 +41,7 @@ class Square:
                 or not all(isinstance(num, int) for num in value)
                 or not all(num >= 0 for num in value)):
             raise TypeError("position must be a tuple of 2 positive integers")
-            self.__position = value
+        self.__position = value
 
     def area(self):
         """Returns the current square area"""
