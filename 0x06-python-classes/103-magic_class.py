@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """Defines a MagicClass matching exactly a bytecode provided by Holberton."""
 
 import math
