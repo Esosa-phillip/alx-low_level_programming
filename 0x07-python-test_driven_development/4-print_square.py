@@ -3,15 +3,16 @@
 This module is composed by a function to print a square with a character #
 """
 
+
 def print_square(size):
     """ Function that prints a square with a character #
-    
+
     Args:
         size: size of square printed
-        
+
     Return:
         No return
-        
+
     Raises:
         TypeError: If size is not an integer
     """
