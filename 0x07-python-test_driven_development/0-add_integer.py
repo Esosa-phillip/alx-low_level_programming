@@ -5,19 +5,19 @@ This module is composed by a function that adds two numbers
 
 """
 
+
 def add_integer(a, b=98):
     """ Function that adds two integer and/or float numbers
-    
+
     Args:
         a: first number
         b: second number
-        
+
     Returns:
         The addition of two given numbers
-        
+
     Raises:
         TypeErrror: If a or b aren't integer and/or are float
-        
     """
 
     if not isinstance(a, int) and not isinstance(a, float):
