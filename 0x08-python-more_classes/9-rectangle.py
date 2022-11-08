@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 """Module describes the real representation of a Rectangle
 """
 
