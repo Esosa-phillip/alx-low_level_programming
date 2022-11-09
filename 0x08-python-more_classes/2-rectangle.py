@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 """Defines a class rectangle"""
 
 
@@ -52,14 +52,3 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         return (2 * (self.__width + self.__height))
-
-    def __str__(self):
-        """Defines the string representation of a rectangle"""
-        if self.__width == 0 or self.__height == 0:
-            return ""
-        rectang = []
-        for i in range(self.__height):
-            [rectang.append('#') for j in range(self.__width)]
-            if i != self.__height - 1:
-                rectang.append("\n")
-        return "".join(rectang)

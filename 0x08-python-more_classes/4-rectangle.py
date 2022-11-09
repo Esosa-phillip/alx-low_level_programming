@@ -1,5 +1,5 @@
-#!/usr/bin/python3
-"""Defines a class Rectangle"""
+#!/usr/bin/python
+"""Defines a class rectangle"""
 
 
 class Rectangle:
@@ -26,7 +26,7 @@ class Rectangle:
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
-        self.width = value
+        self.__width = value
 
     @property
     def height(self):
@@ -40,10 +40,10 @@ class Rectangle:
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
-        self.height = value
+        self.__height = value
 
     def area(self):
-        """returns the rectangle area"""
+        """returns the area of the rectangle"""
         return self.__width * self.__height
 
     def perimeter(self):
@@ -64,5 +64,5 @@ class Rectangle:
         return "".join(rectang)
 
     def __repr__(self):
-        """Returns the string representation of the rectangle"""
+        """returns a string representation of the rectangle"""
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
