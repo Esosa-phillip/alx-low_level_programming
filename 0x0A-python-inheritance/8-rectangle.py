@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """contains the class BaseGeometry and
 the subclass Rectangle"""
 
