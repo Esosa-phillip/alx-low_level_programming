@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """The module contains the function inherit_from"""
 
 
