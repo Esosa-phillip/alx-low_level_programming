@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""this contains the clas "Student"""
+"""this contains the class "Student"""
 
 
 class Student:
