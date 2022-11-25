@@ -87,7 +87,7 @@ class Rectangle(Base):
 
     def __str__(self):
         """string representation of a rectangle"""
-        str_rectangle = "[Rectangle]"
+        str_rectangle = "[Rectangle] "
         str_id = "({}) ".format(self.id)
         str_xy = "{}/{} - ".format(self.x, self.y)
         str_wh = "{}/{}".format(self.width, self.height)
