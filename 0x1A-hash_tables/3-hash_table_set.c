@@ -1,65 +1,75 @@
 #include "hash_tables.h"
+#include <stdlib.h>
+#include <string.h>
 
 /**
- * add_n_hash - adds a node at the beginning of a hash at a given index
+ * hash_chain_set - change an element in a singly-linked list
+ * @head: a pointer to the singly-linked list
+ * @key: a pointer to the element's key
+ * @value: a pointer to the element's new value
  *
- * @head: head of the hash linked list
- * @key: key of the hash
- * @value: value to store
- * Return: head of the hash
+ * Return: 1 upon success, otherwise 0
  */
-hash_node_t *add_n_hash(hash_node_t **head, const char *key, const char *value)
+int hash_chain_set(hash_node_t *head, const char *key, char *value)
 {
-	hash_node_t *tmp;
-
-	tmp = *head;
-
-	while (tmp != NULL)
+	if (head)
 	{
-		if (strcmp(key, tmp->key) == 0)
-		{
-			free(tmp->value);
-			tmp->value = strdup(value);
-			return (*head);
-		}
-		tmp = tmp->next;
+		if (strcmp(key, head->key))
+			return (hash_chain_set(head->next, key, value));
+
+		free(head->value);
+		head->value = value;
+		return (1);
 	}
-
-	tmp = malloc(sizeof(hash_node_t));
-
-	if (tmp == NULL)
-		return (NULL);
-
-	tmp->key = strdup(key);
-	tmp->value = strdup(value);
-	tmp->next = *head;
-	*head = tmp;
-
-	return (*head);
+	return (0);
 }
 
 /**
- * hash_table_set - adds a hash (key, value) to a given hash table
+ * hash_table_set - set an element in a hash table
+ * @ht: a pointer to the hash table
+ * @key: a pointer to the element's key
+ * @value: a pointer to the element's value
  *
- * @ht: pointer to the hash table
- * @key: key of the hash
- * @value: value to store
- * Return: 1 if successes, 0 if fails
+ * Return: 1 upon success, otherwise 0
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int k_index;
+	hash_node_t *new_node = NULL;
+	char *new_value = NULL;
+	unsigned long int index = 0;
 
-	if (ht == NULL)
+	if (!(ht && key && *key))
 		return (0);
 
-	if (key == NULL || *key == '\0')
+	if (value)
+	{
+		new_value = strdup(value);
+		if (!new_value)
+			return (0);
+	}
+
+	index = key_index((const unsigned char *) key, ht->size);
+
+	if (hash_chain_set(ht->array[index], key, new_value))
+		return (1);
+
+	new_node = malloc(sizeof(*new_node));
+	if (!new_node)
+	{
+		free(new_value);
 		return (0);
+	}
 
-	k_index = key_index((unsigned char *)key, ht->size);
-
-	if (add_n_hash(&(ht->array[k_index]), key, value) == NULL)
+	new_node->key = strdup(key);
+	if (!new_node->key)
+	{
+		free(new_value);
+		free(new_node);
 		return (0);
+	}
 
+	new_node->value = new_value;
+	new_node->next = ht->array[index];
+	ht->array[index] = new_node;
 	return (1);
 }
